@@ -11,7 +11,7 @@ const config = {
   },
   'coinMarketCap': {
     'api': 'http://api.coinmarketcap.com/v1/ticker/',
-    'ticker': 'DOGEC'
+    'ticker': 'teloscoin'
   },
   'db': {
     'host': '127.0.0.1',

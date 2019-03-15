@@ -87,43 +87,43 @@ installMongo () {
     clear
 }
 
-installDogeCash () {
-    echo "Installing DogeCash..."
-    mkdir -p /tmp/dogecash
-    cd /tmp/dogecash
-   curl -Lo dogecash.zip $dogeclink
+installTelos () {
+    echo "Installing Telos..."
+    mkdir -p /tmp/telos
+    cd /tmp/telos
+   curl -Lo telos.zip $dogeclink
 apt install zip unzip
 
-unzip dogecash.zip
-cd dogecash
+unzip telos.zip
+cd telos
 
 sudo mv .* /usr/local/bin
     cd
-    rm -rf /tmp/dogecash
-    mkdir -p /home/explorer/.dogecash
-    cat > /home/explorer/.dogecash/dogecash.conf << EOL
+    rm -rf /tmp/telos
+    mkdir -p /home/explorer/.telos
+    cat > /home/explorer/.telos/telos.conf << EOL
 rpcport=52544
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
 daemon=1
 txindex=1
 EOL
-    sudo cat > /etc/systemd/system/dogecashd.service << EOL
+    sudo cat > /etc/systemd/system/telosd.service << EOL
 [Unit]
-Description=dogecashd
+Description=telosd
 After=network.target
 [Service]
 Type=forking
 User=explorer
 WorkingDirectory=/home/explorer
-ExecStart=/home/explorer/bin/dogecashd -datadir=/home/explorer/.dogecash
-ExecStop=/home/explorer/bin/dogecash-cli -datadir=/home/explorer/.dogecash stop
+ExecStart=/home/explorer/bin/telosd -datadir=/home/explorer/.telos
+ExecStop=/home/explorer/bin/telos-cli -datadir=/home/explorer/.telos stop
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 EOL
-    sudo systemctl start dogecashd
-    sudo systemctl enable dogecashd
+    sudo systemctl start telosd
+    sudo systemctl enable telosd
     echo "Sleeping for 1 hour while node syncs blockchain..."
     sleep 1h
     clear
@@ -131,7 +131,7 @@ EOL
 
 installBlockEx () {
     echo "Installing BlockEx..."
-    git clone https://github.com/dogecash/dogecash-explorer.git /home/explorer/blockex
+    git clone https://github.com/telos/telos-explorer.git /home/explorer/blockex
     cd /home/explorer/blockex
     yarn install
     cat > /home/explorer/blockex/config.js << EOL
@@ -144,7 +144,7 @@ const config = {
   },
   'coinMarketCap': {
     'api': 'http://api.coinmarketcap.com/v1/ticker/',
-    'ticker': 'dogecash'
+    'ticker': 'telos'
   },
   'db': {
     'host': '127.0.0.1',
@@ -194,7 +194,7 @@ clear
 
 # Variables
 echo "Setting up variables..."
-dogeclink=`curl -s https://api.github.com/repos/dogecash/dogecash/releases/latest | grep browser_download_url | grep dogecash.zip | cut -d '"' -f 4`
+dogeclink=`curl -s https://api.github.com/repos/telos/telos/releases/latest | grep browser_download_url | grep telos.zip | cut -d '"' -f 4`
 rpcuser=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')
 rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
 echo "Repo: $bwklink"
@@ -209,7 +209,7 @@ if [ ! -d "/home/explorer/blockex" ]
 then
     installNginx
     installMongo
-    installDogeCash
+    installTelos
     installNodeAndYarn
     installBlockEx
     echo "Finished installation!"

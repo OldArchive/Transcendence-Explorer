@@ -1,8 +1,8 @@
-![DogeCash Logo](https://dogec.io/assets/images/logo.svg)
+![Telos Logo](https://teloscoin.org/assets/images/logo.svg)
 
-DogeCash Explorer
+Telos Explorer
 &middot;
-[![GitHub license](https://img.shields.io/github/license/dogecash/dogecash-explorer.svg)](https://github.com/dogecash/dogecash-explorer/blob/master/COPYING) [![Build Status](https://travis-ci.com/dogecash/dogecash-explorer.svg?branch=master)](https://travis-ci.com/dogecash-crypto/dogecash-explorer) [![Discord](https://img.shields.io/discord/479050479330918410.svg)](http://discord.dogec.io/) [![GitHub version](https://badge.fury.io/gh/dogecash%2Fdogecash-explorer.svg)](https://badge.fury.io/gh/dogecash%2Fdogecash-explorer)
+[![GitHub license](https://img.shields.io/github/license/telos/telos-explorer.svg)](https://github.com/telos/telos-explorer/blob/master/COPYING) [![Build Status](https://travis-ci.com/telos/telos-explorer.svg?branch=master)](https://travis-ci.com/telos-crypto/telos-explorer) [![Discord](https://img.shields.io/discord/479050479330918410.svg)](http://discord.dogec.io/) [![GitHub version](https://badge.fury.io/gh/telos%2Ftelos-explorer.svg)](https://badge.fury.io/gh/telos%2Ftelos-explorer)
 =====
 
 Simple cryptocurrency block explorer system.
@@ -18,16 +18,16 @@ https://nodejs.org/en/download/package-manager/
 
 https://yarnpkg.com/lang/en/docs/install/
 
-It is also required to have the DogeCash daemon running in the background. It is recommended to set this up before beginning to set up the explorer so that it syncs by the time you need it.
+It is also required to have the Telos daemon running in the background. It is recommended to set this up before beginning to set up the explorer so that it syncs by the time you need it.
 
-Our geniuses here at DogeCash™ have put together a script to do this for you. Just run
+Our geniuses here at Telos™ have put together a script to do this for you. Just run
 
-`bash script/dogecashd_setup.sh`
+`bash script/telosd_setup.sh`
 
-This will install the latest DogeCash wallet and create a rpc username/password before starting the daemon.
+This will install the latest Telos wallet and create a rpc username/password before starting the daemon.
 
 ## Install
-`git clone https://github.com/dogecash/dogecash-explorer.git` - copy repo to local folder.
+`git clone https://github.com/telos/telos-explorer.git` - copy repo to local folder.
 
 `cd blockex` - change into project directory.
 
