@@ -54,22 +54,22 @@ class Footer extends Component {
           <div className="footer__social-media-wrapper">
             <div className="footer__social-title">Social Media</div>
             <div>
-              {/* <a href="https://bitcointalk.org/index.php?topic=2499481.0" target="_blank">
+              <a href="https://bitcointalk.org/index.php?topic=4453455.0" target="_blank">
                 <Icon name="bitcoin" className="fab footer__social-media-icon" />
-              </a> */}
-              <a href="https://discord.dogec.io/" target="_blank">
+              </a>
+              <a href="https://discord.gg/aeKFNdW" target="_blank">
                 <Icon name="discord" className="fab footer__social-media-icon" />
               </a>
-              <a href="https://telegram.dogec.io/" target="_blank">
+              {/* <a href="https://telegram.dogec.io/" target="_blank">
                 <Icon name="telegram" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://reddit.dogec.io/" target="_blank">
+              </a> */}
+              {/* <a href="https://reddit.dogec.io/" target="_blank">
                 <Icon name="reddit" className="fab footer__social-media-icon" />
-              </a>
-              <a href="https://github.dogec.io/" target="_blank">
+              </a> */}
+              <a href="https://github.com/phoenixkonsole/transcendence" target="_blank">
                 <Icon name="github" className="fab footer__social-media-icon" />
               </a>
-              <a href="https://twitter.dogec.io/" target="_blank">
+              <a href="https://twitter.com/teloscoin" target="_blank">
                 <Icon name="twitter" className="fab footer__social-media-icon" />
               </a>
             
