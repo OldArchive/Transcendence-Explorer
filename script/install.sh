@@ -94,10 +94,10 @@ installTelos () {
    curl -Lo Linux.zip $dogeclink
 apt install zip unzip
 
-unzip telos.zip
-cd Linux
+unzip Linux.zip
 
-sudo mv .* /usr/local/bin
+
+sudo cp * /usr/local/bin
     cd
     rm -rf /tmp/telos
     mkdir -p /home/explorer/.transcendence
