@@ -95,35 +95,35 @@ installTelos () {
 apt install zip unzip
 
 unzip telos.zip
-cd telos
+cd Linux
 
 sudo mv .* /usr/local/bin
     cd
     rm -rf /tmp/telos
-    mkdir -p /home/explorer/.telos
-    cat > /home/explorer/.telos/telos.conf << EOL
-rpcport=52544
+    mkdir -p /home/explorer/.transcendence
+    cat > /home/explorer/.transcendence/transcendence.conf << EOL
+rpcport=22122
 rpcuser=$rpcuser
 rpcpassword=$rpcpassword
 daemon=1
 txindex=1
 EOL
-    sudo cat > /etc/systemd/system/telosd.service << EOL
+    sudo cat > /etc/systemd/system/transcendenced.service << EOL
 [Unit]
-Description=telosd
+Description=transcendenced
 After=network.target
 [Service]
 Type=forking
 User=explorer
 WorkingDirectory=/home/explorer
-ExecStart=/home/explorer/bin/telosd -datadir=/home/explorer/.telos
-ExecStop=/home/explorer/bin/telos-cli -datadir=/home/explorer/.telos stop
+ExecStart=/home/explorer/bin/transcendenced -datadir=/home/explorer/.transcendence
+ExecStop=/home/explorer/bin/transcendence-cli -datadir=/home/explorer/.transcendence stop
 Restart=on-abort
 [Install]
 WantedBy=multi-user.target
 EOL
-    sudo systemctl start telosd
-    sudo systemctl enable telosd
+    sudo systemctl start transcendenced
+    sudo systemctl enable transcendenced
     echo "Sleeping for 1 hour while node syncs blockchain..."
     sleep 1h
     clear
@@ -131,20 +131,20 @@ EOL
 
 installBlockEx () {
     echo "Installing BlockEx..."
-    git clone https://github.com/telos/telos-explorer.git /home/explorer/blockex
+    git clone https://github.com/akshaynexus/Transcendence-Explorer.git /home/explorer/blockex
     cd /home/explorer/blockex
     yarn install
     cat > /home/explorer/blockex/config.js << EOL
 const config = {
   'api': {
-    'host': 'https://api.dogec.io',
+    'host': 'https://api.teloscoin.io',
     'port': '443',
     'prefix': '/api',
     'timeout': '180s'
   },
   'coinMarketCap': {
     'api': 'http://api.coinmarketcap.com/v1/ticker/',
-    'ticker': 'telos'
+    'ticker': 'teloscoin'
   },
   'db': {
     'host': '127.0.0.1',
@@ -158,7 +158,7 @@ const config = {
   },
   'rpc': {
     'host': '127.0.0.1',
-    'port': '52544',
+    'port': '52541',
     'user': '$rpcuser',
     'pass': '$rpcpassword',
     'timeout': 12000, // 12 seconds
@@ -194,10 +194,10 @@ clear
 
 # Variables
 echo "Setting up variables..."
-dogeclink=`curl -s https://api.github.com/repos/telos/telos/releases/latest | grep browser_download_url | grep telos.zip | cut -d '"' -f 4`
+dogeclink=`curl -s https://api.github.com/phoenixkonsole/transcendence/releases/latest | grep browser_download_url | grep Linux.zip | cut -d '"' -f 4`
 rpcuser=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 13 ; echo '')
 rpcpassword=$(head /dev/urandom | tr -dc A-Za-z0-9 | head -c 32 ; echo '')
-echo "Repo: $bwklink"
+echo "Repo: $dogeclink"
 echo "PWD: $PWD"
 echo "User: $rpcuser"
 echo "Pass: $rpcpassword"
