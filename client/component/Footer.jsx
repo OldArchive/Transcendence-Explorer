@@ -25,7 +25,7 @@ class Footer extends Component {
     return (
       <div className="footer">
         <div className="footer__block">
-          <img className="footer__logo" src="/img/justdoge.svg" />
+          <img className="footer__logo" src="/img/teloslogo.svg" />
           <span className="footer__legal">
             <div>Copyright &copy; 2019 <a href="https://teloscoin.org/">Telos Cryptocurrency</a></div>
             <div>Site design / Logo &copy; 2019 <a href="https://teloscoin.org/">Telos Cryptocurrency</a></div>
