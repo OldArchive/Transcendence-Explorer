@@ -96,6 +96,8 @@ a {
   `);
 });
 var https = require('https')
+var fs = require('fs')
+
 // Start the server.
 https.createServer({
   key: fs.readFileSync('server.key'),
