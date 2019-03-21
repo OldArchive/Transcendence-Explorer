@@ -95,6 +95,7 @@ a {
 </html>
   `);
 });
+var https = require('https')
 // Start the server.
 https.createServer({
   key: fs.readFileSync('server.key'),
